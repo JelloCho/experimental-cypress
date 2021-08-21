@@ -1,1 +1,1 @@
-# exprimental-cypress
+# experimental-cypress
