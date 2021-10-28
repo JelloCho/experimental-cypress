@@ -33,7 +33,7 @@ context('Aliasing', () => {
     // the button is clicked in scripts.js
     cy.get('.network-btn').click()
 
-    // https://on.cypress.io/wait
+    // Wait for a number of milliseconds or wait for an aliased resource to resolve before moving on to the next command.
     cy.wait('@getComment').its('response.statusCode').should('eq', 200)
   })
 })
