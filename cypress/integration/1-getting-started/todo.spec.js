@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 // describe 훅은 block 단위로 테스트(it)를 묶는다.
 // It provides a way to keep tests easier to read and organized.
 describe('example to-do app', () => {

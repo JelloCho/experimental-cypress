@@ -5,10 +5,8 @@ context('Actions', () => {
     cy.visit('http://localhost:8080/commands/actions')
   })
 
-  // https://on.cypress.io/interacting-with-elements
-
   it('.type() - type into a DOM element', () => {
-    // https://on.cypress.io/type
+
     cy.get('.action-email')
       .type('fake@email.com').should('have.value', 'fake@email.com')
 
@@ -28,13 +26,13 @@ context('Actions', () => {
 
     cy.get('.action-disabled')
       // Ignore error checking prior to type
-      // like whether the input is visible or disabled
+      // like whether the input is visible or disabled 뭐하는 테스트 인지 모르겠다...
       .type('disabled error checking', { force: true })
       .should('have.value', 'disabled error checking')
   })
 
   it('.focus() - focus on a DOM element', () => {
-    // https://on.cypress.io/focus
+    // prev() gets the immediately preceding sibling.
     cy.get('.action-focus').focus()
       .should('have.class', 'focus')
       .prev().should('have.attr', 'style', 'color: orange;')
@@ -245,14 +243,8 @@ context('Actions', () => {
   })
 
   it('.trigger() - trigger an event on a DOM element', () => {
-    // https://on.cypress.io/trigger
-
-    // To interact with a range input (slider)
-    // we need to set its value & trigger the
-    // event to signal it changed
-
-    // Here, we invoke jQuery's val() method to set
-    // the value and trigger the 'change' event
+    // The val function accepts an argument to set the value.
+    // The change event is fired for <input>, <select>, and <textarea> elements when an alteration to the element's value is committed by the user.
     cy.get('.trigger-input-range')
       .invoke('val', 25)
       .trigger('change')
@@ -278,6 +270,7 @@ context('Actions', () => {
 
     // if you chain .scrollTo() off of cy, we will
     // scroll the entire window
+    // 왜 안되징 ㅠㅠ...
     cy.scrollTo('bottom')
 
     cy.get('#scrollable-horizontal').scrollTo('right')
