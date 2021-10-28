@@ -1,4 +1,3 @@
-
 // describe 훅은 block 단위로 테스트(it)를 묶는다.
 // It provides a way to keep tests easier to read and organized.
 describe('example to-do app', () => {
@@ -68,7 +67,6 @@ describe('example to-do app', () => {
     })
 
     it('can filter for completed tasks', () => {
-
       cy.contains('Completed').click()
 
       cy.get('.todo-list li')
@@ -80,7 +78,6 @@ describe('example to-do app', () => {
     })
 
     it('can delete all completed tasks', () => {
-
       cy.contains('Clear completed').click()
 
       cy.get('.todo-list li')
