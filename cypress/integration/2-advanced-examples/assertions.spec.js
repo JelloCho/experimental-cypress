@@ -43,7 +43,7 @@ context('Assertions', () => {
       cy.get('.assertions-link')
         .should('have.class', 'active')
         .and('have.attr', 'href')
-        .and('include', 'cypress.io')
+        .and('include', 'cypress.io') // 이부분 이해안감 ... href의 value인데...element의 value는 아니잖슴...
     })
   })
 
@@ -54,8 +54,8 @@ context('Assertions', () => {
       expect(true).to.be.true
       const o = { foo: 'bar' }
 
-      expect(o).to.equal(o)
-      expect(o).to.deep.equal({ foo: 'bar' })
+      expect(o).to.equal(o) // 얇은 비교 :레퍼런스를 비교
+      expect(o).to.deep.equal({ foo: 'bar' }) // 값을 비교
       // matching text using regular expression
       expect('FooBar').to.match(/bar$/i)
     })
@@ -136,19 +136,19 @@ context('Assertions', () => {
        * useful before comparing text with spaces and different capitalization.
        * @param {string} s Text to normalize
       */
+      // \s means "match whitespace" and the g is a flag which means "global"
       const normalizeText = (s) => s.replace(/\s/g, '').toLowerCase()
 
       cy.get('.two-elements')
         .find('.first')
         .then(($first) => {
           // save text from the first element
-          text = normalizeText($first.text())
+          text = normalizeText($first.text()) // Foo Bar -> foobar
         })
 
       cy.get('.two-elements')
         .find('.second')
         .should(($div) => {
-          // we can massage text before comparing
           const secondText = normalizeText($div.text())
 
           expect(secondText, 'second text').to.equal(text)
