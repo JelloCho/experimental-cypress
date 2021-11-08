@@ -2,6 +2,7 @@
 
 context('Cookies', () => {
   beforeEach(() => {
+    // Log when cookie values are created, modified or deleted
     Cypress.Cookies.debug(true)
 
     cy.visit('http://localhost:8080/commands/cookies')
@@ -55,7 +56,7 @@ context('Cookies', () => {
 
     cy.getCookie('token').should('have.property', 'value', '123ABC')
 
-    // cy.clearCookies() yields null
+    // cy.clearCookie() yields null
     cy.clearCookie('token').should('be.null')
 
     cy.getCookie('token').should('be.null')
