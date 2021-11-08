@@ -28,7 +28,7 @@ context("Cypress.Commands", () => {
         // we don't want to change the subject so
         // we return whatever was passed in
         return subject;
-      }
+      },
     );
 
     // eslint-disable-next-line no-unused-vars
@@ -163,7 +163,7 @@ context("Cypress.env()", () => {
     expect(Cypress.env()).to.have.property("host", "veronica.dev.local");
     expect(Cypress.env()).to.have.property(
       "api_server",
-      "http://localhost:8888/v2/"
+      "http://localhost:8888/v2/",
     );
   });
 });
